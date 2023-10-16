@@ -1,13 +1,22 @@
 FROM ruby:3.2.1-bullseye
 
-RUN apt-get update -qq && apt-get install -y nodejs npm postgresql-client python3 python3-pip ffmpeg
-RUN npm install -g yarn
+# Note: This is deprecated
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - 
+
+RUN apt-get update -qq && apt-get install -y --no-install-recommends \
+    ffmpeg \
+    nodejs \
+    postgresql-client \
+    python3 \
+    python3-pip && \
+    rm -rf /var/apt/*
 
 RUN mkdir /app
 WORKDIR /app
 
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
+
 RUN bundle config set clean true && \
     bundle config set deployment true && \
     bundle config set no-cache true && \
@@ -16,7 +25,8 @@ RUN bundle config set clean true && \
 
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
-RUN yarn install --production
+RUN npm install -g --python=python3 npm node-gyp yarn && \
+    yarn install --production
 
 COPY . /app
 
