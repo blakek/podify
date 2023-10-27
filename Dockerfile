@@ -1,24 +1,22 @@
 FROM docker.io/library/ruby:3.2.1
 
-RUN apt-get update -qq && apt-get install -y \
+# Note: This is deprecated
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - 
+
+RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     ffmpeg \
     nodejs \
-    npm \
     postgresql-client \
-    python2.7 \
     python3 \
-    python3-pip
-
-# Set python2.7 for old node-gyp
-ENV PYTHON=/usr/bin/python2.7
-
-RUN npm install -g yarn
+    python3-pip && \
+    rm -rf /var/apt/*
 
 RUN mkdir /app
 WORKDIR /app
 
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
+
 RUN bundle config set clean true && \
     bundle config set deployment true && \
     bundle config set no-cache true && \
@@ -27,7 +25,8 @@ RUN bundle config set clean true && \
 
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
-RUN yarn install --production
+RUN npm install -g --python=python3 npm node-gyp yarn && \
+    yarn install --production
 
 COPY . /app
 

@@ -57,6 +57,8 @@ gem 'mimemagic', "~> 0.3"
 
 gem 'amazing_print', "~> 1.2"
 
+gem 'rss'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', "~> 11.1", platforms: [:mri, :mingw, :x64_mingw]
