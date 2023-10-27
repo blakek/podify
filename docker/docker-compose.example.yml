@@ -1,4 +1,4 @@
-version: '3.4'
+version: "3.4"
 
 x-app-defaults: &app-defaults
   restart: always
@@ -22,7 +22,7 @@ x-app-defaults: &app-defaults
 services:
   web:
     <<: *app-defaults
-    image: maxhollmann/podify:latest
+    image: blakek13/podify:latest
     command: start-server
     ports:
       - 3000:3000
@@ -31,7 +31,7 @@ services:
 
   worker:
     <<: *app-defaults
-    image: maxhollmann/podify:latest
+    image: blakek13/podify:latest
     command: start-worker
     environment:
       <<: *app-env

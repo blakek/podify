@@ -1,6 +1,17 @@
-FROM ruby:3.2.1-bullseye
+FROM docker.io/library/ruby:3.2.1
 
-RUN apt-get update -qq && apt-get install -y nodejs npm postgresql-client python3 python3-pip ffmpeg
+RUN apt-get update -qq && apt-get install -y \
+    ffmpeg \
+    nodejs \
+    npm \
+    postgresql-client \
+    python2.7 \
+    python3 \
+    python3-pip
+
+# Set python2.7 for old node-gyp
+ENV PYTHON=/usr/bin/python2.7
+
 RUN npm install -g yarn
 
 RUN mkdir /app
