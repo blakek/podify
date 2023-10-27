@@ -1,7 +1,7 @@
 # Podify
 
-![Docker Image Version (latest semver)](https://img.shields.io/docker/v/maxhollmann/podify?sort=semver)
-![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/maxhollmann/podify?sort=semver)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/blakek13/podify?sort=semver)
+![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/blakek13/podify?sort=semver)
 ![GitHub](https://img.shields.io/github/license/podify-org/podify)
 ![CI](https://github.com/podify-org/podify/workflows/CI/badge.svg)
 
@@ -17,22 +17,22 @@ Here's a [sample `docker-compose.yml`](docker/docker-compose.example.yml).
 
 ## Configuration via Environment Variables
 
-| Variable              | Required | Description                                                                                           |
-|:----------------------|:---------|:------------------------------------------------------------------------------------------------------|
-| DATABASE_URL          | Yes      | `postgres://` url pointing to postgres database                                                       |
-| REDIS_URL             | Yes      | `redis://` url pointing to redis instance                                                             |
-| URL_HOST              | Yes      | Where the app will be available, e.g. `https://podify.yourdomain.com`                                 |
-| SECRET_KEY_BASE       | Yes      | This is used to encrypt sessions, see [below](#secret_key_base)                                       |
-| STORAGE_DIR           | Yes      | Where downloads will be stored                                                                        |
-| INITIAL_USER_EMAIL    | No       | Email of user to create at startup                                                                    |
-| INITIAL_USER_PASSWORD | No       | Password of user to create at startup                                                                 |
-| ENABLE_SIGNUP         | No       | Allow anyone with access to the site to sign up. `"yes"` or `"no"` (default: `"yes"`)                 |
+| Variable              | Required | Description                                                                           |
+| :-------------------- | :------- | :------------------------------------------------------------------------------------ |
+| DATABASE_URL          | Yes      | `postgres://` url pointing to postgres database                                       |
+| REDIS_URL             | Yes      | `redis://` url pointing to redis instance                                             |
+| URL_HOST              | Yes      | Where the app will be available, e.g. `https://podify.yourdomain.com`                 |
+| SECRET_KEY_BASE       | Yes      | This is used to encrypt sessions, see [below](#secret_key_base)                       |
+| STORAGE_DIR           | Yes      | Where downloads will be stored                                                        |
+| INITIAL_USER_EMAIL    | No       | Email of user to create at startup                                                    |
+| INITIAL_USER_PASSWORD | No       | Password of user to create at startup                                                 |
+| ENABLE_SIGNUP         | No       | Allow anyone with access to the site to sign up. `"yes"` or `"no"` (default: `"yes"`) |
 
 ### `SECRET_KEY_BASE`
 
 This is utilized to encrypt and sign sessions. It's recommended that you generate a new one instead of using the one from the example `docker-compose.yml`. You can generate a new one using
 
-    docker run --rm maxhollmann/podify rails secret
+    docker run --rm blakek13/podify rails secret
 
 ## Development
 

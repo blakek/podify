@@ -1,4 +1,4 @@
-FROM ruby:3.2.1-bullseye
+FROM docker.io/library/ruby:3.2.1
 
 # Note: This is deprecated
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - 
