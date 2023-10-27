@@ -7,8 +7,6 @@ RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     ffmpeg \
     nodejs \
     postgresql-client \
-    python3 \
-    python3-pip && \
     rm -rf /var/apt/*
 
 RUN mkdir /app
@@ -25,7 +23,7 @@ RUN bundle config set clean true && \
 
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
-RUN npm install -g --python=python3 npm node-gyp yarn && \
+RUN npm install -g yarn && \
     yarn install --production
 
 COPY . /app
