@@ -24,7 +24,7 @@ RUN bundle config set clean true && \
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
 RUN npm install -g yarn && \
-    yarn install --production
+    yarn install --production --network-timeout 1000000
 
 COPY . /app
 
