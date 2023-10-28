@@ -1,0 +1,52 @@
+// ==========================================================================
+// Plyr styles
+// https://github.com/sampotts/plyr
+// TODO: Review use of BEM classnames
+// ==========================================================================
+@charset 'UTF-8';
+
+@import '~plyr/src/sass/lib/css-vars';
+$css-vars-use-native: true;
+
+@import '~plyr/src/sass/settings/breakpoints';
+@import '~plyr/src/sass/settings/colors';
+@import '~plyr/src/sass/settings/cosmetics';
+@import '~plyr/src/sass/settings/type';
+
+@import '~plyr/src/sass/settings/badges';
+@import '~plyr/src/sass/settings/captions';
+@import '~plyr/src/sass/settings/controls';
+@import '~plyr/src/sass/settings/helpers';
+@import '~plyr/src/sass/settings/menus';
+@import '~plyr/src/sass/settings/progress';
+@import '~plyr/src/sass/settings/sliders';
+@import '~plyr/src/sass/settings/tooltips';
+
+@import '~plyr/src/sass/lib/animation';
+@import '~plyr/src/sass/lib/functions';
+@import '~plyr/src/sass/lib/mixins';
+
+@import '~plyr/src/sass/base';
+
+@import '~plyr/src/sass/components/badges';
+@import '~plyr/src/sass/components/captions';
+@import '~plyr/src/sass/components/control';
+@import '~plyr/src/sass/components/controls';
+// @import '~plyr/src/sass/components/menus';
+// @import '~plyr/src/sass/components/sliders';
+@import '~plyr/src/sass/components/poster';
+@import '~plyr/src/sass/components/times';
+// @import '~plyr/src/sass/components/tooltips';
+// @import '~plyr/src/sass/components/progress';
+@import '~plyr/src/sass/components/volume';
+
+@import '~plyr/src/sass/types/audio';
+@import '~plyr/src/sass/types/video';
+
+@import '~plyr/src/sass/states/fullscreen';
+
+@import '~plyr/src/sass/plugins/ads';
+// @import '~plyr/src/sass/plugins/preview-thumbnails/index';
+
+@import '~plyr/src/sass/utils/animation';
+@import '~plyr/src/sass/utils/hidden';

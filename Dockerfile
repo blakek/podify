@@ -6,9 +6,9 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     ffmpeg \
     nodejs \
-    postgresql-client \
     python3 \
-    python3-pip && \
+    python3-pip \
+    postgresql-client && \
     rm -rf /var/apt/*
 
 RUN mkdir /app
@@ -25,8 +25,8 @@ RUN bundle config set clean true && \
 
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
-RUN npm install -g --python=python3 npm node-gyp yarn && \
-    yarn install --production
+RUN npm install -g yarn && \
+    yarn install --production --network-timeout 1000000
 
 COPY . /app
 

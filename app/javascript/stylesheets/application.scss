@@ -3,7 +3,11 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~bootstrap-vue/src/index.scss";
 @import 'vue-loading-overlay/dist/vue-loading.css';
-@import "~plyr/src/sass/plyr.scss";
+
+// @import "~plyr/src/sass/plyr.scss";
+// HACK: Finding why plyr.scss is not working
+@import "plyr-hack.scss";
+
 
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
