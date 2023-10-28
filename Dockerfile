@@ -6,6 +6,8 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     ffmpeg \
     nodejs \
+    pip3 \
+    python3 \
     postgresql-client && \
     rm -rf /var/apt/*
 
