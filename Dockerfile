@@ -1,14 +1,12 @@
-FROM docker.io/library/ruby:3.2.1
-
-# Note: This is deprecated
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - 
+FROM ruby:3.2.2-bookworm
 
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     ffmpeg \
     nodejs \
+    npm \
+    postgresql-client \
     python3 \
-    python3-pip \
-    postgresql-client && \
+    python3-pip && \
     rm -rf /var/apt/*
 
 RUN mkdir /app
@@ -40,6 +38,9 @@ ENV NODE_ENV=production
 
 # Precompile assets
 RUN webpack
+
+# Get around externally managed environemnt error: https://stackoverflow.com/a/76641565
+RUN mv /usr/lib/python3.11/EXTERNALLY-MANAGED /usr/lib/python3.11/EXTERNALLY-MANAGED.old
 
 ENV RAILS_SERVE_STATIC_FILES="yes"
 ENV RAILS_LOG_TO_STDOUT="yes"
