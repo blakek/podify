@@ -1,4 +1,4 @@
-FROM ruby:3.2.2-bookworm
+FROM docker.io/library/ruby:3.2.2-bookworm
 
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     ffmpeg \
